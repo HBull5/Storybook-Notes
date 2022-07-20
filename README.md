@@ -89,7 +89,7 @@ Green.args ={
 
 * Additionally `parameters` can be passed to modify the storybook surrounding UI or other elements the example below will allow you to change up the storybook background colors  
 
-```mdx
+```javascript
 import { Meta, Story, Canvas };
 import Button from '../components/Button'; 
 
@@ -108,4 +108,30 @@ import Button from '../components/Button';
 />
 ```
 
-* You'll also want to define a `<Canvas />` this element is what you'll actually display in storybook. Here much like JS it is best to define a `Template` and build iterations of that with `args` even if there is only one. 
+* You'll also want to define a `<Canvas />` this element is what you'll actually display in storybook. A `<Canvas />` has several `<Stories />` inside of it that will make up each story you see in storybook. Here much like JS it is best to define a `Template` and build iterations of that with `args` even if there is only one. 
+
+```javascript
+import { Meta, Story, Canvas };
+import Button from '../components/Button'; 
+
+<Meta 
+  title="Button" 
+  component={Button}
+/>
+
+function Template(args) {
+  return <Button {...args} />
+}
+
+<Canvas>
+ <Story 
+    name='Button'
+    args={{
+      backgroundColor: 'red', 
+      text: 'Red Button'
+    }}
+  >
+   {Template.bind({})}
+ </Story>
+</Canvas
+```
