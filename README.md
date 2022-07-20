@@ -108,7 +108,7 @@ import Button from '../components/Button';
 />
 ```
 
-* You'll also want to define a `<Canvas />` this element is what you'll actually display in storybook. A `<Canvas />` has several `<Stories />` inside of it that will make up each story you see in storybook. Here much like JS it is best to define a `Template` and build iterations of that with `args` even if there is only one. 
+* You'll also want to define a `<Canvas />` this element is what you'll actually display in storybook. A `<Canvas />` has several `<Stories />` inside of it that will make up each story you see in storybook. Here much like JS it is best to define a `Template` and build iterations of that with `args` even if there is only one. The `<Story />` must have a `name` property to render in storybook properly. `<Story />` can also take `args` and `argTypes` as well. If you want your `argTypes` to be global you can define them on the `<Meta />` tag.
 
 ```javascript
 import { Meta, Story, Canvas };
